@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> sign in form with facebook and google </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<style>
+*{
+     box-sizing:border-box;
+}
+body{
+    background:white;
+    background-size:cover;
+}
+.wrap{
+    max-width:400px;
+    margin:auto;
+    margin-top:50px;
+    padding:20px;
+    font-family:sans-serif;
+    background:#fff;
+    border-radius:10px;
+}
+.wrap h2{
+    font-size:2em;
+    text-align:center;
+    background-color:lightsteelblue;
+}
+
+button{
+   
+    padding:10px;
+    margin-top : 12px;
+    width:100%;
+    height: 40px;
+    box-sizing:border-box;
+    border:none;
+    font-size:1.3em;
+    border-radius:10px;
+    font-weight:bold;
+    display: list-item;
+}
+button a{
+    text-decoration:none;
+    color:#fff;
+}
+button:nth-child(1){
+    background:rgb(84, 84, 252);
+}   
+button:nth-child(2){
+    background:rgb(231, 82, 82);
+} 
+button:nth-child(3){
+    background:goldenrod;
+} 
+button:hover{
+    background:rgba(0,0,0,0.6);
+}
+.fa{
+    font-size:1.3em;
+    font-weight:bold;
+}
+form{
+     margin-top:30px;
+}
+input[type=text],input[type=password]{
+     width:100%;
+     padding:10px;
+     margin-bottom:15px;
+     font-size:17px;
+     border-radius:5px;
+     
+}
+input[type=submit]{
+     width:100%;
+     padding:10px;
+     margin-bottom:15px;
+     font-size:17px;
+     border-radius:5px;
+     border:2px blue;
+}
+label{
+    font-size:20px;
+    font-weight:bold;
+}
+input[type=submit]{
+    background:rgb(51, 240, 152);
+    border:none;
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+    padding:15px;
+    cursor:pointer;
+}
+input[type=submit]:hover{
+    background:orange;
+}
+p{
+    text-align:center;
+}
+p a{
+     text-decoration:none;
+     font-weight:bold;
+}
+.error-message{
+    background-color:rgb(240, 133, 133);
+    color:#fff;
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.success-message{
+    background-color:rgb(105, 189, 105);
+    color:#fff;
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h2>Sign in </h2>
+    <div class="error-message">Wrong Email !!</div>
+    <div class="success-message">Correct Email !!</div>
+        <form>
+         <label> Email:</label><br>
+              <input type ="text" class="email">
+         <label> password:</label><br>
+              <input type ="password">
+              <input type ="submit" value="SIGN IN" class="submitBtn">
+         </form>
+     <p> Forgot your password?<a href ="#"> Sign Up Now</a></p>
+     <div class ="social-media">
+        <button><a href ="https://www.facebook.com/"><i class ="fa fa-facebook"></i></a></button>
+        <button><a href ="https://www.google.com/"><i class ="fa fa-google"></i></a></button>
+        <button><a href ="#"><i class ="fa"></i> <  Epam Login  ></a></button>
+   </div>
+</div>
+<script>
+    document.querySelector('.submitBtn').addEventListener('click',e=>{
+        e.preventDefault();
+        const email = document.querySelector('.email').value;
+        //console.log(email.endsWith('.com'));
+        if(email.indexOf('@')>=0 && email.endsWith('.com'))
+        {
+            document.querySelector('.success-message').style.display = 'block';
+        }
+        else{
+            
+            document.querySelector('.error-message').style.display = 'block';
+            window.setTimeout(()=>{
+                document.querySelector('.error-message').style.display = 'none';
+            },1000);
+        }
+
+    });
+
+</script>
+</body>
+</html>
